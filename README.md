@@ -1,15 +1,15 @@
-# pfa-docker-desafio1
-Desafio 1 - PFA Docker FullCycle
+# Desafio 1 - PFA Docker FullCycle</h2>
 
-Comandos para executar:
+<b>Comandos para executar:</b>
 
-docker network create pfa
+<ol>
+  <li>docker network create pfa</li>
+  <li>docker run -d --network=pfa --name db hssantos/pfa-docker-desafio1-mysql</li>
+  <li>docker exec -it db bash</li>
+  <li>mysql -uroot -proot < create-schema.sql</li>
+  <li>exit</li>
 
-docker run -d --network=pfa --name db hssantos/pfa-docker-desafio1-mysql
-docker exec -it db bash
-mysql -uroot -proot < create-schema.sql
-exit
+  <li>docker run -d --network=pfa --name=nodecontainer -v $(pwd)/node:/usr/src/app hssantos/pfa-docker-desafio1-node</li>
 
-docker run -d --network=pfa --name=nodecontainer -v $(pwd)/node:/usr/src/app hssantos/pfa-docker-desafio1-node
-
-docker run -d --network=pfa --name=nginxcontainer -p 8080:80 hssantos/pfa-docker-desafio1-nginx
+  <li>docker run -d --network=pfa --name=nginxcontainer -p 8080:80 hssantos/pfa-docker-desafio1-nginx</li>
+</ol>
