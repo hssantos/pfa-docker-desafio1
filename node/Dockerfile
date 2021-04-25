@@ -1,8 +1,12 @@
-FROM node:15.14.0-alpine3.10
-
-RUN apk add bash
+FROM node:15
 
 WORKDIR /usr/src/app
+
+COPY index.js .
+
+RUN npm init -y
+RUN npm install express --save
+RUN npm install mysql --save
 
 EXPOSE 3000
 
